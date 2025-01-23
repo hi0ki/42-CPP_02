@@ -2,9 +2,20 @@ C++ = c++ -Wall -Wextra -Werror
 
 SRC = main.cpp
 
-Name = program
+NAME = program
+
+OBJ = $(SRC:.cpp=.o)
 
 ALL: $(NAME)
 
-$(NAME) :
-	$(CC) $(SRC) -o $(NAME)
+$(NAME): $(OBJ)
+	$(C++) $(OBJ) -o $(NAME)
+
+
+clean:
+	rm -rf $(OBJ)
+
+fclean: clean
+	rm -rf $(NAME)
+
+re: fclean $(NAME)
