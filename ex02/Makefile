@@ -11,6 +11,9 @@ ALL: $(NAME)
 $(NAME): $(OBJ) Fixed.hpp
 	$(C++) $(OBJ) -o $(NAME)
 
+%.o:%.cpp Fixed.hpp
+	$(C++) -c $< -o $@
+
 clean:
 	rm -rf $(OBJ)
 

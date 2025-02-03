@@ -3,6 +3,7 @@
 
 	#include <iostream>
 	#include <cmath>
+	#define DEBUG 1
 
 	class Fixed
 	{
@@ -37,6 +38,11 @@
 			/*		 The 4 increment	*/
 			Fixed& operator++();
 			Fixed operator++(int);
+			Fixed& operator--();
+			Fixed operator--(int);
+			/*		 The 2 max/min		*/
+			
+
 	};
 	std::ostream& operator<<(std::ostream& os, const Fixed& obj);
 #endif
