@@ -1,32 +1,37 @@
 #include <iostream>
-#include <cmath>
+
+class Fixed {
+private:
+    int value;
+
+public:
+    Fixed(int v) : value(v) {}
+
+    int getValue() const { return value; }
+
+    // Friend function for int + Fixed (or Fixed + int)
+    friend Fixed operator+(int lhs, const Fixed& rhs); // Correct declaration
+
+};
+
+// Definition of the friend function (outside the class)
+Fixed operator+(int lhs, const Fixed& rhs) {
+    return Fixed(lhs + rhs.value); // Access value directly since it's a friend
+}
+
+
+
+std::ostream& operator<<(std::ostream& os, const Fixed& obj)
+{
+    os << obj.getValue();
+    return os;
+}
 
 int main() {
-    float num1 = 3.44;
-    float num2 = 3.5;
-    float num3 = 3.99;
-    float num4 = -2.1;
-    float num5 = -2.5;
-    float num6 = -2.9;
-    float num7 = 0.000004;
-	
-    // std::cout << num7 << std::endl; // Output: 3
-    std::cout << "round(3.14) = " << roundf(num1) << std::endl; // Output: 3
-    // std::cout << "round(3.5) = " << roundf(num2) << std::endl; // Output: 4
-    // std::cout << "round(3.99) = " << roundf(num3) << std::endl; // Output: 4
-    // std::cout << "round(-2.1) = " << roundf(num4) << std::endl; // Output: -2
-    // std::cout << "round(-2.5) = " << roundf(num5) << std::endl; // Output: -3
-    // std::cout << "round(-2.9) = " << roundf(num6) << std::endl; // Output: -3
+    Fixed a(10);
+Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) )
 
-    // // Comparison with floor() and ceil()
-    // std::cout << "floor(3.14) = " << floorf(num1) << std::endl; // Output: 3
-    // std::cout << "ceil(3.14) = " << ceilf(num1) << std::endl;  // Output: 4
-    // std::cout << "floor(3.5) = " << floorf(num2) << std::endl; // Output: 3
-    // std::cout << "ceil(3.5) = " << ceilf(num2) << std::endl;  // Output: 4
-    // std::cout << "floor(-2.1) = " << floorf(num4) << std::endl; // Output: -3
-    // std::cout << "ceil(-2.1) = " << ceilf(num4) << std::endl;  // Output: -2
-    // std::cout << "floor(-2.5) = " << floorf(num5) << std::endl; // Output: -3
-    // std::cout << "ceil(-2.5) = " << ceilf(num5) << std::endl;  // Output: -2
-
+    Fixed result1 = num + a;  // Correct usage
+    std::cout << result1 << std::endl; // Output: 15
     return 0;
 }

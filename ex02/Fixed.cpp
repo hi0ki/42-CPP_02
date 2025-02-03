@@ -41,7 +41,7 @@ Fixed& Fixed::operator=(const Fixed& obj)
 }
 
 
-/*				New functions			*/
+/*				New functions ex01			*/
 
 Fixed::Fixed(const int value)
 {
@@ -69,4 +69,74 @@ std::ostream& operator<<(std::ostream& os, const Fixed& obj)
 {
 	os << obj.toFloat();
 	return (os);
+}
+
+/*				New functions ex02			*/
+/*				The 6 comparison 			*/
+
+bool Fixed::operator>(const Fixed& obj) const
+{
+	return (this->fixed_p > obj.fixed_p);
+}
+
+bool Fixed::operator<(const Fixed& obj) const
+{
+	return (this->fixed_p < obj.fixed_p);
+}
+
+bool Fixed::operator>=(const Fixed& obj) const
+{
+	return (this->fixed_p >= obj.fixed_p);
+}
+
+bool Fixed::operator<=(const Fixed& obj) const
+{
+	return (this->fixed_p <= obj.fixed_p);
+}
+
+bool Fixed::operator==(const Fixed& obj) const
+{
+	return (this->fixed_p == obj.fixed_p);
+}
+
+bool Fixed::operator!=(const Fixed& obj) const
+{
+	return (this->fixed_p != obj.fixed_p);
+}
+
+/*			  The 4 arithmetic				*/
+
+float Fixed::operator+(const Fixed& obj) const
+{
+	return (this->toFloat() + obj.toFloat());
+}
+
+float Fixed::operator-(const Fixed& obj) const
+{
+	return (this->toFloat() - obj.toFloat());
+}
+
+float Fixed::operator*(const Fixed& obj) const
+{
+	return (this->toFloat() * obj.toFloat());
+}
+
+float Fixed::operator/(const Fixed& obj) const
+{
+	return (this->toFloat() / obj.toFloat());
+}
+
+/*			  The 4 increment				*/
+
+Fixed& Fixed::operator++()
+{
+	this->fixed_p++;
+	return *this;
+}
+
+Fixed Fixed::operator++(int)
+{
+	Fixed tmp_obj = *this;
+	this->fixed_p++;
+	return tmp_obj;
 }
