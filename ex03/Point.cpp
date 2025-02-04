@@ -17,12 +17,11 @@ Point& Point::operator=(const Point& obj)
 	return *this;
 }
 
-// Point::Point(const Point& obj)
-// {
-// 	*this = obj;
-// }
+Point::Point(Point& obj) : x(obj.x) , y(obj.y) {
+	std::cout << "Point: Copy constructor called" << std::endl;
+}
 
 Point::~Point()
 {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "Point: Destructor called" << std::endl;
 }

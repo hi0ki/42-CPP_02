@@ -7,10 +7,10 @@ void Point::print()
 }
 int main( void ) {
     Point b(1, 3);
-    Point a(b);
+    Point *a;
 
-    // a = &b;
-    a.print();
-    b.print();
+    a = &b;
+    // a->print();
+    // b.print();
     return 0;
 }
