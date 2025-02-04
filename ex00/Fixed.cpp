@@ -1,6 +1,6 @@
 #include "Fixed.hpp"
 
-static const int bits = 8;
+const int Fixed::bits = 8;
 
 Fixed::Fixed()
 {

@@ -160,3 +160,35 @@ Fixed Fixed::operator--(int)
 	this->fixed_p--;
 	return tmp_obj;
 }
+
+/*			  The 4 max/min				*/
+
+Fixed& Fixed::max(Fixed& obj1, Fixed& obj2)
+{
+	if (obj1.fixed_p > obj2.fixed_p)
+		return obj1;
+	else
+		return obj2;
+}
+const Fixed& Fixed::max(const Fixed& obj1, const Fixed& obj2)
+{
+	if (obj1.fixed_p > obj2.fixed_p)
+		return obj1;
+	else
+		return obj2;
+}
+
+Fixed& Fixed::min(Fixed& obj1, Fixed& obj2)
+{
+	if (obj1.fixed_p > obj2.fixed_p)
+		return obj2;
+	else
+		return obj1;
+}
+const Fixed& Fixed::min(const Fixed& obj1, const Fixed& obj2)
+{
+	if (obj1.fixed_p > obj2.fixed_p)
+		return obj2;
+	else
+		return obj1;
+}
