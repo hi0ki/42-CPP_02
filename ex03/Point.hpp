@@ -13,9 +13,9 @@
 		Point( float nx, float ny );
 		Point(Point& obj);
 		Point& operator=(const Point& obj);
-		void print();
+		Fixed get_x() const;
+		Fixed get_y() const;
 		~Point();
-
 	};
 	
 	bool bsp( Point const a, Point const b, Point const c, Point const point);

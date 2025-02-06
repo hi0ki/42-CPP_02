@@ -1,16 +1,19 @@
 #include "Fixed.hpp"
 #include "Point.hpp"
 
-void Point::print()
-{
-    std::cout << this->x << " | " << this->y << std::endl;
-}
 int main( void ) {
-    Point b(1, 3);
-    Point a;
+    Point a(0, 0);
+    Point b(4, 0);
+    Point c(2, 4);
+    Point P(2, 2);
+    Point P1(5, 5);
+    Point P2(2, 0);
 
-    a = b;
-    a.print();
-    // b.print();
+
+    if (bsp(a, b, c, P) == true) {
+        std::cout << "Point is inside the triangle" << std::endl;
+    } else {
+        std::cout << "Point is outside the triangle" << std::endl;
+    }
     return 0;
 }

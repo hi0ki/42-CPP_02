@@ -1,12 +1,8 @@
 #include "Point.hpp"
 
-Point::Point( void ){
-	std::cout << "Point: Default constructor called" << std::endl;
-}
+Point::Point( void ) : x(0) , y(0) {}
 
-Point::Point( float nx, float ny ) : x(nx), y(ny) {
-	std::cout << "Point: Float constructor called" << std::endl;
-}
+Point::Point( float nx, float ny ) : x(nx), y(ny) {}
 
 Point& Point::operator=(const Point& obj)
 {
@@ -14,11 +10,15 @@ Point& Point::operator=(const Point& obj)
 	return *this;
 }
 
-Point::Point(Point& obj) : x(obj.x) , y(obj.y) {
-	std::cout << "Point: Copy constructor called" << std::endl;
-}
+Point::Point(Point& obj) : x(obj.x) , y(obj.y) {}
 
-Point::~Point()
+Point::~Point() {}
+
+Fixed Point::get_x() const
 {
-	std::cout << "Point: Destructor called" << std::endl;
+	return (x);
+}
+Fixed Point::get_y() const
+{
+	return (y);
 }
