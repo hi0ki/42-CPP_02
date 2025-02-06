@@ -10,10 +10,7 @@ Point::Point( float nx, float ny ) : x(nx), y(ny) {
 
 Point& Point::operator=(const Point& obj)
 {
-	if (this != &obj)
-	{
-		*this = &obj;
-	}
+	(void)obj;
 	return *this;
 }
 
