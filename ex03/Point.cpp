@@ -12,7 +12,7 @@ Point& Point::operator=(const Point& obj)
 {
 	if (this != &obj)
 	{
-		*this = obj;
+		*this = &obj;
 	}
 	return *this;
 }
